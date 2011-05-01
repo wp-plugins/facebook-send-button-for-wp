@@ -3,7 +3,7 @@
 Plugin Name: Facebook Send Button for WP
 Plugin URI: http://www.darkomitrovic.com/wp-plugin/facebook-send-button/
 Description: Add the Facebook Send Button to your wordpress.
-Version: 1.0
+Version: 1.1
 Author: Darko Mitrovic
 Author URI: http://www.darkomitrovic.com/
 License: GPL2
@@ -13,27 +13,23 @@ function send_button($content)
 {	
 	//if POST & PAGE checked
 	if (get_option('send_button_post') == 'yes' && get_option('send_button_page') == 'yes') {
-		if(!is_feed() && !is_home()) {
+		if((is_single) || (is_page())){
 			$content .= '<div id="fb-root"></div>
 			<script src="http://connect.facebook.net/en_US/all.js#appId=101834286544733&amp;xfbml=1"></script>
 			<fb:send href="'.get_permalink().'" font="'.get_option('send_button_font').'" colorscheme="'.get_option('send_button_colorscheme').'"></fb:send>';
 		}
 	}
 	//if POST checked
-	else if (get_option('send_button_post') == 'yes') {
-		if(!is_feed() && !is_home() && !is_page()) {
+	else if (get_option('send_button_post') == 'yes' && (is_single()) ) {
 			$content .= '<div id="fb-root"></div>
 			<script src="http://connect.facebook.net/en_US/all.js#appId=101834286544733&amp;xfbml=1"></script>
 			<fb:send href="'.get_permalink().'" font="'.get_option('send_button_font').'" colorscheme="'.get_option('send_button_colorscheme').'"></fb:send>';
-		}
 	}
 	//if PAGE checked
-	else if (get_option('send_button_page') == 'yes') {
-		if(!is_feed() && !is_home() && !is_single()) {
+	else if (get_option('send_button_page') == 'yes' && (is_page()) ) {
 			$content .= '<div id="fb-root"></div>
 			<script src="http://connect.facebook.net/en_US/all.js#appId=101834286544733&amp;xfbml=1"></script>
 			<fb:send href="'.get_permalink().'" font="'.get_option('send_button_font').'" colorscheme="'.get_option('send_button_colorscheme').'"></fb:send>';
-		}
 	}
 	//NON checked
 	else {

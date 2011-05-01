@@ -4,15 +4,17 @@ Donate link: http://www.darkomitrovic.com/donate/
 Tags: facebook, send, button
 Requires at least: 3.0
 Tested up to: 3.1.2
-Stable tag: 1.0
+Stable tag: 1.1
 
 Add the Facebook Send Button plugin to your wordpress.
 
 == Description ==
 
 Add Facebook Send Button to your wordpress blog.
-Options to insert send button to any posts, pages or both.
+You have options to insert send button to any posts, pages or both.
 Very simple configuration.
+
+Visit plugin site: http://www.darkomitrovic.com/wp-plugin/facebook-send-button/
  
 == Installation ==
 
